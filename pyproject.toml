@@ -1,0 +1,29 @@
+[project]
+name = "roguegame"
+version = "0.1.0"
+description = "A 2D roguelike built with Pygame"
+
+requires-python = ">=3.11"
+readme = "README.md"
+dependencies = [
+    "pygame-ce>=2.5.8",
+]
+
+[project.scripts]
+roguegame = "roguegame:main"
+
+[build-system]
+requires = ["uv_build>=0.13.1,<0.14.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
+markers = [
+    "slow: longer randomized simulations (deselect with -m 'not slow')",
+]
